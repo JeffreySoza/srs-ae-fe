@@ -3,6 +3,7 @@ import { UsersService } from './users.service';
 
 @Component({
     selector: 'app-users',
+    standalone: true,
     imports: [],
     templateUrl: './users.component.html',
     styleUrl: './users.component.sass'
