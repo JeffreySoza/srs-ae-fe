@@ -1,0 +1,8 @@
+<div class="alert" [@isVisible]="isVisible() ? 'displayAlert' : 'hideAlert'" [ngClass]="{
+      'alert-visible': isVisible(),
+      'alert--success': type() === 'success',
+      'alert--error': type() === 'error'
+     }">
+  <span class="alert__message">{{ message() }}</span>
+  <span class="alert__close" (click)="closeAlert()">X</span>
+</div>

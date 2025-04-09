@@ -1,0 +1,37 @@
+.alert
+  position: fixed
+  top: 1rem
+  right: 1rem
+  transform: translateX(-50%)
+  padding: 1rem
+  margin: 1rem
+  border-radius: 1rem
+  box-shadow: 0 0 10px rgba(0,0,0,0.1)
+  transition: all 0.3s ease-out
+  display: flex
+  justify-content: justify-evenly
+  align-items: center
+  gap: 1rem
+  color: white
+
+  &.hidden
+    opacity: 0
+    transform: translateX(-50%) scale(0.95)
+
+  &.alert-visible 
+    opacity: 1
+    transform: scaleX(1)
+
+  &.alert--success 
+    background-color: green
+  
+  &.alert--error 
+    background-color: red
+  
+  .alert__close 
+    cursor: pointer
+    font-size: 20px
+    color: white
+    background: transparent
+    border: none
+    font-weight: bold

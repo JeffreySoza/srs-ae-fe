@@ -1,0 +1,39 @@
+<div class="container">
+  <div class="background"></div>
+  <div class="login-box">
+    <div class="logo">
+      <img src="assets/login/SRS-Header-Large.png" alt="Academia Europea Logo" />
+    </div>
+
+    <hr class="rounded-separator-hor">
+
+    <form [formGroup]="loginForm" (ngSubmit)="login()">
+      <label for="email">Correo electrónico</label>
+      <div class="input-group">
+        <span class="icon">#</span>
+        <input type="email" id="email" formControlName="email" placeholder="Correo electrónico" />
+      </div>
+      <div *ngIf="email?.invalid && email?.touched" class="error">
+        <small *ngIf="email?.errors?.['required']">Email es requerido</small>
+        <small *ngIf="email?.errors?.['email']">Formato de email inválido</small>
+      </div>
+
+      <label for="password">Contraseña</label>
+      <div class="input-group">
+        <span class="icon">🔑</span>
+        <input type="password" id="password" formControlName="password" placeholder="Ingresa tu contraseña" />
+      </div>
+      <div *ngIf="password?.invalid && password?.touched" class="error">
+        <small *ngIf="password?.errors?.['required']">Contraseña es requerida</small>
+        <small *ngIf="password?.errors?.['minlength']">Mínimo 6 caracteres</small>
+      </div>
+
+      <button type="submit" [disabled]="loginForm.invalid">Iniciar sesión</button>
+
+      <a href="#" class="forgot-password">¿Olvidaste tu contraseña?</a>
+    </form>
+
+    <app-alert></app-alert>
+    <!-- <app-alert [isVisible]="alertState" [message]="alertMessage" [type]="alertType"></app-alert> SYNTAX USING @INPUTS ON THE COMPONENT --> 
+  </div>
+</div>

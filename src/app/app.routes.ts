@@ -1,16 +1,10 @@
-import { Routes, RouterModule } from '@angular/router';
-import { AppComponent } from './app.component';
+import { Routes } from '@angular/router';
 import { UsersComponent } from './users/users.component';
-import { NgModule } from '@angular/core';
+import { LoginComponent } from './Auth/login/login.component';
+import { AuthGuard } from './auth.guard';
 
 export const routes: Routes = [
-    { path: '', component: AppComponent }, // Default route
-    { path: 'users', component: UsersComponent },
-    { path: '**', redirectTo: '' }, // Wildcard route for 404
+    { path: 'login', component: LoginComponent},
+    { path: 'users', component: UsersComponent, canActivate: [AuthGuard] }, // i use canActivate property to specify which guard this route it will use as protection
+    { path: '**', redirectTo: 'login' }, // Wildcard route for 404
 ];
-
-@NgModule({
-    imports: [RouterModule.forRoot(routes)],
-    exports: [RouterModule],
-})
-export class AppRoutingModule { }

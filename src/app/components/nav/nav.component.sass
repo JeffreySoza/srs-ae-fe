@@ -1,0 +1,54 @@
+$primary-color: #2c3e50
+$accent-color: #f39c12
+
+.navbar
+  display: flex
+  justify-content: space-between
+  align-items: center
+  background-color: $primary-color
+  padding: 10px 20px
+  color: white
+
+  .logo a
+    text-decoration: none
+    color: white
+    font-size: 1.5rem
+    font-weight: bold
+
+  .menu-toggle
+    display: none
+    background: none
+    border: none
+    font-size: 1.5rem
+    color: white
+    cursor: pointer
+
+  ul
+    list-style: none
+    display: flex
+    gap: 15px
+
+    li a
+      color: white
+      text-decoration: none
+      padding: 8px 12px
+
+      &.active
+        border-bottom: 2px solid $accent-color
+
+  @media (max-width: 768px)
+    .menu-toggle
+      display: block
+
+    ul
+      display: none
+      flex-direction: column
+      background-color: $primary-color
+      position: absolute
+      top: 60px
+      right: 20px
+      width: 200px
+      padding: 10px
+
+      &.active
+        display: flex
